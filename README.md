@@ -32,6 +32,8 @@ Summarily, **data profiling** tells what the data looks like; **data validation*
   - 1–1, 1–Many, Many–Many
 
 ### 1.2 Data Preparation (Cleaning & Transformation)
+
+**Cleaning:**
 - Duplicates
 - Missing Values
 - Data Types
@@ -40,6 +42,10 @@ Summarily, **data profiling** tells what the data looks like; **data validation*
 - Irrelevant Data
 - Special Characters
 - Outliers (statistical analysis)
+
+**Transformation:**
+- **Append:** combines data by adding rows. It stacks datasets with the same structure into one larger dataset, increasing the number of records without changing the columns.
+- **Merge:** combines data by adding columns. It links datasets using a common field to bring related information from one dataset into another.
 - Normalization vs Standardization (model building)
 
 ### 1.3 Exploratory Data Analysis (EDA)
@@ -120,9 +126,6 @@ An unsupervised machine learning technique, `K-Means Clustering`, groups custome
 - Data Validation (drop-down lists)
 - Flash Fill for quick transformations
 - Introduction to **`Power Query`** for automated data cleaning & transformation
-- **Append:** combines data by adding rows. It stacks datasets with the same structure into one larger dataset, increasing the number of records without changing the columns.
-- **Merge:** combines data by adding columns. It links datasets using a common field to bring related information from one dataset into another.
-
 
 ### 2.2 Functions & Conditional Formatting
 
