@@ -1091,30 +1091,68 @@ df.plot(kind='area')
 | **Boolean filtering** | Accepts boolean masks with **labels**       | Accepts boolean masks with **positions**       |
 | **Use case**          | When you know the **index names** or labels | When you know the **row/column order**         |
 
-## 6. Basic-Statistics-for-Data-Analysis
+## 6. Statistics Basics for Data Analysis
 
+### 6.1	Descriptive Statistics
+    - Mean, median, mode
+    - Variance and standard deviation
+    - Percentiles and quartiles
+    - Data visualization
 
+### 6.2	Inferential Statistics
+    - Confidence intervals
+    - Hypothesis testing (A/B testing, t-tests, chi-square tests, z-tests, etc.)
+    - Correlation and covariance
 
+### 6.3	Linear Regression
 
+### 6.4	Classification
 
+### 6.5	Probability Basics
+    - Basic probability rules
+    - Distributions (normal, uniform, binomial)
+    - Sampling techniques
 
+**Histogram**: a graphical representation of the distribution of a dataset showing the frequency of data points in specified intervals.
 
+**Box plot**: a graphical representation of the distribution of a dataset showing the median, quartiles, and possible outliers.
 
+**Linear Regression**: a statistical method used to model the relationship between a dependent variable and one or more independent varaibles.
 
-## 7. Machine-Learning-Basics
+**R-squared**: measures the proportion of variation in the dependent variable explained by the independent variables.
 
+**Adjusted R-squared**: adjusts for the number of independent varaibles in the model.
 
+## 7. Machine Learning Basics
 
+**Normal Distribution**: A normal distribution is a symmetric, bell-shaped distribution where data cluster around the mean.
 
+It’s important in data analysis and machine learning because many statistical methods assume normality and real-world data often approximate this pattern, especially through the Central Limit Theorem.
 
+**Linear Regression**: a statistical method used to model the relationship between a dependent variable and one or more independent varaibles.
 
+**Overfitting**: occurs when a model is too complex and performs too well.
 
+**Confusion Matrix**: a table used to evaluate the performance of a classification model showing the true positives, true negatives, false positives, and false negatives.
 
+## Types of Machine Learning
+- Supervised: Predict output using labelled data (e.g., Linear Regression, Logistic Regression, Random Forest, SVM, XGBoost)
+  > **Example tasks**: Classification, Regression
+- Unsupervised: Discover patterns from unlabelled data (e.g., K-Means, Hierarchical Clustering, PCA)
+  > **Example tasks**: Clustering, Dimensionality Reduction
+- Semi-supwervised: Use small labelled + large unlabelled data
 
+## Normalization vs Standardization
+> `Normalisation` rescales data to a fixed range; `Standardization` rescales data to have a fixed mean and variance. Choose based on algorithm assumptions and feature scale sensitivity.
 
-
-
-
+| Feature      | **Normalization**                      | **Standardization**     |
+| ------------ | -------------------------------------- | ----------------------- |
+| Purpose      | Scale to a fixed range                 | Scale to mean 0, std 1  |
+| Formula      | (x − min) / (max − min)                | (x − μ) / σ             |
+| Output Range | Usually 0–1                            | No fixed range          |
+| Distribution | Preserved                              | Centered & rescaled     |
+| Outliers     | Highly sensitive                       | Moderately sensitive    |
+| Best For     | Distance-based & neural network models | Linear models, PCA, SVM |
 
 
 
