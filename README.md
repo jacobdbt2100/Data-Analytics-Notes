@@ -117,7 +117,7 @@ An unsupervised machine learning technique, `K-Means Clustering`, groups custome
  
 ### 1.5 Data Modelling Concepts
 
-**Semantic model:** A layer that defines metrics, relationships, and logic for easy analysis and reporting.
+**Semantic model:** A layer that defines metrics, relationships, and logic (calculations) for easy analysis and reporting.
 
 - `Schema:`a structured plan of how data is organized in a database. It defines:
   - `Tables (entities):` `Fact` vs `Dimension` tables
