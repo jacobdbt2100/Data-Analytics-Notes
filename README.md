@@ -22,18 +22,10 @@ Summarily, **data profiling** tells what the data looks like; **data validation*
 - **Prescriptive:** `What should we do?` e.g., The system recommends offering free shipping above $40 to increase checkout conversions.
 - **Exploratory:** `What hidden opportunities exist?` e.g., Data reveals customers who buy face cleansers often buy serums within a week, suggesting a personalised follow-up email can boost revenue.
 
-### 1.1 Data Sources
-- Databases, spreadsheets, APIs, streaming data, SaaS applications (Salesforce, HubSpot, Shopify, etc.)
-- Structured, Semi-structured, Unstructured data
-- Data file formats: csv, xlsx, json, parquet
-- Keys & relationships:
-  - **Primary**: a unique identifier for each record in a table.
-  - **Foreign keys**: a field in a table that refers to the primary key of another table, establishing a relationship between the two tables.
-  - 1–1, 1–Many, Many–Many
-
-### 1.2 Data Cleaning
+### 1.1 Data Cleaning
 
 **Data cleaning** is the process of identifying and correcting errors in a dataset to improve its reliability for analysis.
+
 **Data Cleaning Steps:**
 
 **1. Data Types**
