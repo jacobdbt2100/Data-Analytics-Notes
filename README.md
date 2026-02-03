@@ -88,58 +88,15 @@ A **box plot** is a graphical representation of the distribution of a dataset sh
 
 ### 3.1 SQL Basics & Database Foundations
 
-- **SQL definition** and how **databases** are structured
+**SQL (Structured Query Language)** is a standard programming language used to communicate with **relational databases**.
 
-  **SQL (Structured Query Language)** is a standard programming language used to communicate with **relational databases**.
+A **`database`** is an organized collection of data stored and accessed electronically.
 
-  A **`database`** is an organized collection of data stored and accessed electronically.
+**SQL Clauses**
+- **Query Logical Written Order:** SELECT, TOP, DISTINCT, FROM, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT
+- **Query Logical Execution Order:** FROM, ON, JOIN, WHERE, GROUP BY, HAVING, SELECT, DISTINCT, ORDER BY, TOP/LIMIT/OFFSET/FETCH
 
-- **SQL Clauses**
-  - `Query Logical Written Order:` `SELECT`, TOP, DISTINCT, `FROM`, `WHERE`, `GROUP BY`, HAVING, `ORDER BY`, LIMIT
-  - `Query Logical Execution Order:`
-
-
-FROM
-ON (if JOIN used)         
-JOIN
-WHERE
-GROUP BY
-HAVING
-SELECT
-DISTINCT (if used)
-ORDER BY
-TOP / LIMIT / OFFSET / FETCH
-
-
-
-- Filtering with `logical operators` (AND, OR, NOT, BETWEEN, IN, LIKE)
-- Aliases for `columns` and `tables` (especially with joins)
-  - `ALIAS command` in SQL is the name that can be given to any table or a column.
-
-**Example Queries:**
-```sql
--- Create a simple table
-CREATE TABLE customers (
-    customer_id SERIAL PRIMARY KEY,
-    name VARCHAR(50),
-    country VARCHAR(50),
-    age INT
-);
-
--- Insert sample data
-INSERT INTO customers (name, country, age)
-VALUES
-
-('John Doe', 'Nigeria', 30),
-('Mary Smith', 'Kenya', 25),
-('Adewale Ogun', 'Nigeria', 41);
-
--- Retrieve and filter
-SELECT name, country, age
-FROM customers
-WHERE country = 'Nigeria'
-ORDER BY age DESC;
-```
+Filter with **logical operators **(AND, OR, NOT, BETWEEN, IN, LIKE)
 
 ### 3.2 Data Aggregation
 
@@ -148,77 +105,18 @@ ORDER BY age DESC;
 - DISTINCT and aggregate filtering
 - Derived columns using CASE
 
-**Example Queries:**
-
-```sql
--- Count customers by country
-SELECT country, COUNT(*) AS total_customers
-FROM customers
-GROUP BY country;
-
--- Average age of customers per country (filter countries with more than 1)
-SELECT country, ROUND(AVG(age), 1) AS avg_age
-FROM customers
-GROUP BY country
-HAVING COUNT(*) > 1;
-
--- Conditional logic with CASE
-SELECT 
-    name,
-    age,
-    CASE 
-        WHEN age < 30 THEN 'Young'
-        WHEN age BETWEEN 30 AND 45 THEN 'Mid Age'
-        ELSE 'Senior'
-    END AS age_group
-FROM customers;
-```
-
 ### 3.3 Data Cleaning, Joins & CTEs
 
 - Data cleaning with TRIM, LOWER, UPPER, REPLACE
 - Handling NULLs with COALESCE, IS NULL, IS NOT NULL
 - JOINS in SQL
-  
-  A `join` is an operation used to combine rows from two or more tables based on related columns. It enables data retrieval from multiple tables simultaneously. Types: `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, `FULL JOIN`, `CROSS JOIN`, `SELF JOIN`.
 
-- Subqueries and CTEs (Common Table Expressions)
-  - A `subquery` is a query nested inside another query. A `correlated subquery` is a subquery that depends on the outer query. It runs once for each row returned by the outer query.
-  - A `CTE` (Common Table Expression) is a temporary named result set that can be referenced within a SQL query. It makes complex queries easier to read and manage — especially when using subqueries or recursion. A `recursive CTE` is a CTE that refers to itself to handle hierarchical or sequential data, such as organization charts, family trees, or folder structures.
+A **join** is an operation used to combine rows from two or more tables based on related columns. Types: `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, `FULL JOIN`, `CROSS JOIN`, `SELF JOIN`.
 
-**Example Queries:**
+- **Subquery** is a query nested inside another query. A `correlated subquery` is a subquery that depends on the outer query. It runs once for each row returned by the outer query.
 
-```sql
--- Create an orders table
-CREATE TABLE orders (
-    order_id SERIAL PRIMARY KEY,
-    customer_id INT,
-    amount DECIMAL(10,2),
-    order_date DATE
-);
+- A `CTE` (Common Table Expression) is a temporary named result set that can be referenced within a SQL query. It makes complex queries easier to read and manage — especially when using subqueries or recursion. A `recursive CTE` is a CTE that refers to itself to handle hierarchical or sequential data, such as organization charts, family trees, or folder structures.
 
--- Join customers and orders
-SELECT 
-    c.name,
-    o.order_id,
-    o.amount,
-    o.order_date
-FROM customers AS c
-LEFT JOIN orders AS o
-ON c.customer_id = o.customer_id;
-
--- Use CTE to find top spenders
-WITH total_spent AS (
-    SELECT customer_id, SUM(amount) AS total_amount
-    FROM orders
-    GROUP BY customer_id
-)
-SELECT c.name, t.total_amount
-FROM customers AS c
-JOIN total_spent AS t
-ON c.customer_id = t.customer_id
-ORDER BY t.total_amount DESC;
-```
 
 ### 3.4 Query Optimization & Final Project
 
@@ -408,6 +306,26 @@ The `ROW_NUMBER() function` assigns a unique incremental number to each row in t
 | ------------------ | ------------------------------------------------ | ---------------------------------------------------------------- | ------------------- |
 | **`RANK()`**       | Assigns ranks with gaps when there are ties.     | Two people tied at 90 both get rank 2; the next rank skips to 4. | 1, 2, 2, **4**      |
 | **`DENSE_RANK()`** | Assigns consecutive ranks without gaps for ties. | Two people tied at 90 both get rank 2; the next rank is 3.       | 1, 2, 2, **3**      |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 4. Power BI
 
