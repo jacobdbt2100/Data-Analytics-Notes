@@ -28,7 +28,7 @@ Summarily, **data profiling** tells what the data looks like; **data validation*
 
 **Data Cleaning Steps:**
 
-   **1. Data Types:** `Text`, `Dates`, `Decimals/Floats`, `Integer`
+**1. Data Types:** `Text`, `Dates`, `Decimals/Floats`, `Integer`
 
 **2. Irrelevant Data:** `Unused fields/entries`, `Constant values`
 
