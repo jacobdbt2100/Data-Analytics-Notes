@@ -98,12 +98,14 @@ A **`database`** is an organized collection of data stored and accessed electron
 
 Filter with **logical operators **(AND, OR, NOT, BETWEEN, IN, LIKE)
 
-### 3.2 Data Aggregation
+### 3.2 SQL Functions
 
-- Aggregate Functions: COUNT, SUM, AVG, MIN, MAX
-- GROUP BY and HAVING
-- DISTINCT and aggregate filtering
-- Derived columns using CASE
+- Aggregate Functions: COUNT, SUM, AVG, MIN, MAX, MEDIAN, MODE, STDDEV; summarise or aggregate data, often with GROUP BY
+- String Functions: CONCAT, REPLACE, UPPER, LOWER, LTRIM, RTRIM, TRIM, SUBSTRING, LEN/LENGTH; manipulate and clean text
+- Date & Time Functions: GETDATE, CURRENT_DATE, YEAR, MONTH, DAY, DATEDIFF, DATEADD, DATE_TRUNC, DATE_FORMAT; handle and format date/time values
+- Cleaning & Transformation: CAST, CONVERT, COALESCE, NULLIF, CASE WHEN, IFNULL, IIF, LISTAGG; format data, handle nulls, apply conditional logic
+- Set Operations: UNION, UNION ALL, INTERSECT; combine or compare results from multiple queries
+- Window Functions: ROW_NUMBER, RANK, DENSE_RANK, LEAD, LAG, SUM OVER, AVG OVER; perform calculations across rows without grouping
 
 ### 3.3 Data Cleaning, Joins & CTEs
 
@@ -111,223 +113,83 @@ Filter with **logical operators **(AND, OR, NOT, BETWEEN, IN, LIKE)
 - Handling NULLs with COALESCE, IS NULL, IS NOT NULL
 - JOINS in SQL
 
-A **join** is an operation used to combine rows from two or more tables based on related columns. Types: `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, `FULL JOIN`, `CROSS JOIN`, `SELF JOIN`.
-
-- **Subquery** is a query nested inside another query. A `correlated subquery` is a subquery that depends on the outer query. It runs once for each row returned by the outer query.
+**Join** is an operation used to combine rows from two or more tables based on related columns. Types: `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, `FULL JOIN`, `CROSS JOIN`, `SELF JOIN`.
 
-- A `CTE` (Common Table Expression) is a temporary named result set that can be referenced within a SQL query. It makes complex queries easier to read and manage — especially when using subqueries or recursion. A `recursive CTE` is a CTE that refers to itself to handle hierarchical or sequential data, such as organization charts, family trees, or folder structures.
+**Subquery** is a query nested inside another query. A `correlated subquery` is a subquery that depends on the outer query. It runs once for each row returned by the outer query.
 
+**CTE (Common Table Expression)** is a temporary named result set that can be referenced within a SQL query. It makes complex queries easier to read and manage, especially when using subqueries or recursion. A **recursive CTE** is a CTE that refers to itself to handle hierarchical or sequential data, such as organization charts, family trees, or folder structures.
 
-### 3.4 Query Optimization & Final Project
+### 3.4 Query Optimization
 
-- Query performance techniques (basics)
-  - LIMIT
-  - Indexes
-  - Avoiding SELECT *
-  - Partitioning
-
-- Joins with filters and aggregation
-- Window functions (ROW_NUMBER, RANK, SUM OVER)
-- Mini analytical **case studies** project
+**Query performance techniques (basics)**
+- LIMIT
+- Indexes
+- Avoiding `SELECT *`
+- Partitioning
 
-**Example Queries:**
+### 3.5 SQL Commands
 
-```sql
--- Using a window function to rank customers by total order amount
-SELECT 
-    c.name,
-    SUM(o.amount) AS total_spent,
-    RANK() OVER (ORDER BY SUM(o.amount) DESC) AS spending_rank
-FROM customers c
-JOIN orders o ON c.customer_id = o.customer_id
-GROUP BY c.name;
-
--- Simple data quality check
-SELECT *
-FROM orders
-WHERE amount IS NULL OR amount <= 0;
+SQL commands are statements used to define database structures, retrieve data, modify data, control access, and manage transactions in a database.
 
--- Top 3 customers per country by total spending
-WITH country_rank AS (
-    SELECT 
-        c.country,
-        c.name,
-        SUM(o.amount) AS total_spent,
-        ROW_NUMBER() OVER (PARTITION BY c.country ORDER BY SUM(o.amount) DESC) AS rnk
-    FROM customers c
-    JOIN orders o ON c.customer_id = o.customer_id
-    GROUP BY c.country, c.name
-)
-SELECT * 
-FROM country_rank
-WHERE rnk <= 3;
-```
-
-### MISCELLANEOUS
-
-#### `DELETE vs TRUNCATE:`
-`DELETE` removes specific rows from a table using a condition. `TRUNCATE` removes all rows from a table.
+**DDL (Data Definition Language):** define, alter, or remove database structures.
+- CREATE: creates a database object
+- ALTER: modifies an existing object
+- DROP: permanently deletes an object
+- TRUNCATE: deletes all rows while keeping the structure
+- RENAME: changes an object’s name
 
-#### `UNION vs UNION ALL:`
-`UNION` and `UNION ALL` are used to combine the result sets of two or more SELECT statements. `UNION` removes duplicate rows from the combined result set. `UNION ALL` includes all rows, including duplicates.
+**DML (Data Manipulation Language):** manipulate data stored in tables.
+- INSERT: adds new records
+- UPDATE: modifies existing records
+- DELETE: Removes specified records
+- MERGE: Inserts, updates, or deletes records in one statement (used for upserts)
 
-#### `Transaction:`
-A `transaction` is a sequence of SQL statements that are executed as a single logical unit of work. It ensures data consistency and integrity by either committing all changes or rolling them back if an error occurs.
+**DCL (Data Control Language):** control access and privileges.
+- GRANT: gives user permission
+- REVOKE: removes user permissions
 
-#### `Clustered vs Non-clustered Index:`
-A `clustered Index` determines the physical order of data in a table. It changes the way the data is stored on disk and can be created on only one column. A table can have only one clustered index.
+**TCL (Transaction Control Language):** manage transactions and maintain data integrity.
+- COMMIT: saves changes made in a transaction
+- ROLLBACK: reverses changes before commit
+- SAVEPOINT: sets a point to roll back to within a transaction
 
-A `Non-clustered Index` does not affect the physical order of data in a table. It is stored separately and contains a pointer to the actual data. A table can have multiple non-clustered indexes.
+**DQL (Data Query Language):** query and retrieve data.
+- SELECT: retrieves data from tables
 
-#### `ACID in database transactions:`
-`ACID` stands for Atomicity, Consistency, Isolation,and Durability. It is a set of properties that guarantee reliable processing of database transactions.
-  - `Atomicity` ensures that a transaction is treated as a single unit of work, either all or none of the changes are applied.
-  - `Consistency` ensures that a transaction brings the database from one valid state to another
-  - `Isolation` ensures that concurrent transactions do not interfere with each other
-  - `Durability` ensures that once a transaction is committed, its changes are permanent and survive system failures.
+### 3.6 Terms in SQL Databases
 
-#### `Database vs Schema:`
+**DELETE** removes specific rows from a table using a condition. **TRUNCATE** removes all rows from a table.
 
-| **Aspect**     | **Database**                                                                    | **Schema**                                                                                            |
-| -------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| **Definition** | A container for all data and objects such as **tables, views, and procedures**. | A container within a database that holds objects like **tables and views**, defining their ownership. |
-| **Hierarchy**  | Higher level — contains schemas.                                                | Lower level — exists inside a database.                                                               |
+**UNION and UNION ALL** are used to combine the result sets of two or more SELECT statements. **UNION** removes duplicate rows from the combined result set. **UNION ALL** includes all rows, including duplicates.
 
-`Why schemas are useful:`
+**Transaction** is a sequence of SQL statements that are executed as a single logical unit of work. It ensures data consistency and integrity by either committing all changes or rolling them back if an error occurs.
 
-  - They help organise database objects (e.g. separating sales and HR tables).
-  - They control access — permissions can be granted per schema.
-  - They prevent naming conflicts between objects.
-
-#### `Temporary table vs Table variable:`
-
-| **Aspect**     | **Temporary Table**                         | **Table Variable**                             |
-| -------------- | ------------------------------------------- | ---------------------------------------------- |
-| **Definition** | A table stored temporarily in the database. | A variable that holds table data in memory.    |
-| **Scope**      | Exists for a session or transaction.        | Exists within a batch, procedure, or function. |
-| **Storage**    | Stored in tempdb.                           | Primarily stored in memory.                    |
-| **Lifetime**   | Dropped when session or transaction ends.   | Deallocated when its scope ends.               |
+**ACID in database transactions:** Atomicity, Consistency, Isolation, and Durability. It is a set of properties that guarantee reliable processing of database transactions.
 
-#### `Stored Procedure:`
-Is a saved set of SQL commands that performs a specific task — like retrieving, inserting, updating, or deleting data — and can be executed repeatedly. Can be with or without `parameters`.
+**Stored Procedure** is a saved set of SQL commands that perform a specific task like retrieving, inserting, updating, or deleting data, and can be executed repeatedly. Can be with or without **parameters**.
 
-#### `View:`
-A `view` is a virtual table based on the result of an SQLstatement. A `materialized view` is a physical copy of the view's result set stored in the database, which is updated periodically.
+**View** is a virtual table based on the result of an SQL statement. A **materialized view** is a physical copy of the view's result set stored in the database, which is updated periodically.
 
-#### `IN vs EXISTS:`
+**Data Warehouse** is a large, centralized repository that stores and manages data from various sources designed for efficient analysis and reporting.
 
-| **Aspect**       | **IN**                                                                                    | **EXISTS**                                                                            |
-| ---------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| **Purpose**      | Checks if a value exists **within a list or subquery result**.                            | Checks if **any row** exists in a subquery that meets the condition.                  |
-| **How it works** | Compares values directly.                                                                 | Tests for the **existence** of rows — stops checking once it finds one match.         |                       
-#### `Data Warehouse:`
-Is a large, centralized repository that stores and manages data from various sources designed for efficient analysis and reporting purposes.
+**Candidate key** is a set of one or more columns that could potentially become the primary key.
 
-#### `Primary key vs Candidate key:`
-A `primary key` is a chosen candidate key that uniquely identifies a row in a table. A `candidate key` is a set of one or more columns that could potentially become the primary key.
+**Primary key** is a chosen candidate key that uniquely identifies a row in a table.
 
-#### `GRANT:`
-The `GRANT statement` is used to grant specific permissions or privileges to users or roles in a database.
+**COALESCE** returns the first non-null expression from a list of expressions. It is often used to handle null values effectively.
 
-#### `COALESCE:`
-The `COALESCE function` returns the first non-null expression from a list of expressions. It is often used to handle null values effectively.
-
-#### `ROW_NUMBER():`
-The `ROW_NUMBER() function` assigns a unique incremental number to each row in the result set.
-
-#### `Some Purposes of SQL Functions:`
-- Perform some calculations on the data
-- Modify individual data items
-- Manipulate output
-- Format dates and numbers
-- Convert data types
-
-#### `SQL Commands:`
-`SQL commands` are grouped based on what they do in a database. Here’s a simple breakdown:
-
-1. **DDL (Data Definition Language):** `define`, `alter`, or `remove` database structures.
-
-| **Command** | **Purpose**                                                |
-| ----------- | ---------------------------------------------------------- |
-| `CREATE`    | Creates a new database object (table, view, schema, etc.). |
-| `ALTER`     | Modifies an existing object.                               |
-| `DROP`      | Deletes an object permanently.                             |
-| `TRUNCATE`  | Removes all data but keeps the table structure.            |
-| `RENAME`    | Changes the name of a database object.                     |
-
-2. **DML (Data Manipulation Language):** `manipulate data` stored in tables.
-
-| **Command** | **Purpose**                                                                    |
-| ----------- | ------------------------------------------------------------------------------ |
-| `INSERT`    | Adds new records.                                                              |
-| `UPDATE`    | Modifies existing records.                                                     |
-| `DELETE`    | Removes specific records.                                                      |
-| `MERGE`     | Combines `INSERT`, `UPDATE`, and `DELETE` in one statement (used for upserts). |
-
-`MERGE` adds new rows or updates existing ones in a single step (used when matching data from two tables).
-
-3. **DCL (Data Control Language):** `control` access and privileges.
-
-| **Command** | **Purpose**               |
-| ----------- | ------------------------- |
-| `GRANT`     | Gives user permissions.   |
-| `REVOKE`    | Removes user permissions. |
-
-4. **TCL (Transaction Control Language):** `manage transactions` and maintain data integrity.
-
-| **Command** | **Purpose**                                        |
-| ----------- | -------------------------------------------------- |
-| `COMMIT`    | Saves changes made in a transaction.               |
-| `ROLLBACK`  | Reverses changes before commit.                    |
-| `SAVEPOINT` | Sets a point to roll back to within a transaction. |
-
-5. **DQL (Data Query Language):** `query` and retrieve data.
-
-| **Command** | **Purpose**                             |
-| ----------- | --------------------------------------- |
-| `SELECT`    | Retrieves data from one or more tables. |
-
-#### `SQL Commands & Functions Overview:`
-
-| **Category**                     | **Key Commands / Functions**                                                                                       | **Notes & Use Cases**                                          |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
-| **Basics**                    | `SELECT`, `FROM`, `WHERE`, `GROUP BY`, `HAVING`, `ORDER BY`, `LIMIT` / `TOP`, `DISTINCT`                              | Foundation of all SQL queries.                                 |
-| **Operators**                 | `=`, `!=`, `<`, `>`, `<=`, `>=`, `BETWEEN`, `IN`, `NOT IN`, `LIKE`, `ILIKE`, `AND`, `OR`, `NOT`                       | Used to filter and compare values.                             |
-| **Aggregate Functions**       | `COUNT()`, `SUM()`, `AVG()`, `MIN()`, `MAX()`, `MEDIAN()`, `MODE()`, `STDDEV()`                                       | Summarise or aggregate data — often used with `GROUP BY`.      |
-| **String Functions**          | `CONCAT()`, `REPLACE()`, `UPPER()`, `LOWER()`, `LTRIM()`, `RTRIM()`, `TRIM()`, `SUBSTRING()`, `LEN()` / `LENGTH()`    | Used for text manipulation and cleaning.                       |
-| **Date & Time Functions**     | `GETDATE()`, `CURRENT_DATE`, `YEAR()`, `MONTH()`, `DAY()`, `DATEDIFF()`, `DATEADD()`, `DATE_TRUNC()`, `DATE_FORMAT()` | Handle and format date/time values.                            |
-| **Cleaning & Transformation** | `CAST()`, `CONVERT()`, `COALESCE()`, `NULLIF()`, `CASE WHEN`, `IFNULL()`, `IIF()`, `LISTAGG()`                        | Data formatting, null handling, and conditional logic.         |
-| **Set Operations**            | `UNION`, `UNION ALL`, `INTERSECT`, `EXCEPT` / `MINUS`                                                                 | Combine or compare results from multiple queries.              |
-| **Window Functions**          | `ROW_NUMBER()`, `RANK()`, `DENSE_RANK()`, `LEAD()`, `LAG()`, `SUM() OVER(...)`, `AVG() OVER(...)`                     | Perform calculations across rows without grouping.             |
-
-#### `RANK() vs DENSE_RANK():`
-
-| **Function**       | **Description**                                  | **Example (Scores: 95, 90, 90, 85)**                             | **Resulting Ranks** |
-| ------------------ | ------------------------------------------------ | ---------------------------------------------------------------- | ------------------- |
-| **`RANK()`**       | Assigns ranks with gaps when there are ties.     | Two people tied at 90 both get rank 2; the next rank skips to 4. | 1, 2, 2, **4**      |
-| **`DENSE_RANK()`** | Assigns consecutive ranks without gaps for ties. | Two people tied at 90 both get rank 2; the next rank is 3.       | 1, 2, 2, **3**      |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**ROW_NUMBER()** assigns a unique incremental number to each row in the result set.
 
 ## 4. Power BI
+
+
+
+
+
+
+
+
+
 
 ### 4.1 Power BI Basics
 
