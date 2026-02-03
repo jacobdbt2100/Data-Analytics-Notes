@@ -2,20 +2,10 @@
 
 ## 1. Introduction
 
-**Data analysis** is a process of `modelling`, `analyzing`, and `interpreting` data to extract insights. A **Data Analyst** `collects`, `process`, and `analyze` data to identify trends/patterns and make informed decisions.
-
-**Data mining:** The analytical process of applying statistical and machine-learning techniques to prepared data to uncover patterns, relationships, and predictive insights for decision-making.
-
-**Data profiling:** The process of examining data structure, content, and quality to assess fitness for use and prevent issues in downstream analytics.
-
-**Data validation:** The process of enforcing predefined rules and constraints to ensure data meets required standards as it flows through a pipeline.
-
-Summarily, **data profiling** tells what the data looks like; **data validation** ensures the data meets what it should look like.
-
-**Data lifecycle**: `Use case` > `Data collection` > `Storage` > `Processing` > `Analysis` > `Visualization` > `Reporting`
+- **Data analysis** is a process of `modelling`, `analyzing`, and `interpreting` data to extract insights. A **Data Analyst** `collects`, `process`, and `analyze` data to identify trends/patterns and make informed decisions.
+- **Data lifecycle**: `Use case` > `Data collection` > `Storage` > `Processing` > `Analysis` > `Visualization` > `Reporting`
 
 **Types of analytics**:
-
 - **Descriptive:** `What happened?` e.g., A skincare brand sees 15,000 people clicked their Instagram ad last week, but only 500 purchased.
 - **Diagnostic:** `Why did it happen?` e.g., Analysis shows that shipping costs made many customers abandon their carts at checkout.
 - **Predictive:** `What will likely happen?` e.g., If nothing changes, the model forecasts cart drop-offs will keep increasing as shipping prices rise.
@@ -24,13 +14,12 @@ Summarily, **data profiling** tells what the data looks like; **data validation*
 
 ### 1.1 Data Cleaning
 
-**Data cleaning** is the process of identifying and correcting errors in a dataset to improve its reliability for analysis.
+- **Data cleaning** is the process of identifying and correcting errors in a dataset to improve its reliability for analysis.
 
 **Data Cleaning Steps:**
 
-**1. Data Types:** `Text`, `Dates`, `Decimals/Floats`, `Integer`
-
-**2. Irrelevant Data:** `Unused fields/entries`, `Constant values`
+- **1. Data Types:** `Text`, `Dates`, `Decimals/Floats`, `Integer`
+- **2. Irrelevant Data:** `Unused fields/entries`, `Constant values`
 
 **3. Missing Values:** `NULLs / NaNs / Blanks`
 
@@ -62,6 +51,12 @@ A **box plot** is a graphical representation of the distribution of a dataset sh
 - Performance: improves query speed
 - Accuracy: reduces duplication and errors
 - Reusability: reuse of data structures, definitions, and logic across multiple reports and systems.
+
+### 1.3 Data Terms
+
+- **Data mining:** The process of applying statistical and machine-learning techniques on data to uncover patterns.
+- **Data profiling:** The process of examining data to assess fitness for use; **tells what the data looks like.**
+- **Data validation:** The process of enforcing predefined rules and constraints to ensure data meets required standards; **ensures the data meets requirement.**
 
 ## 2. Excel for Data Analysis
 
