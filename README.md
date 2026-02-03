@@ -90,32 +90,27 @@ A **box plot** is a graphical representation of the distribution of a dataset sh
 
 - **SQL definition** and how **databases** are structured
 
-  **SQL (Structured Query Language)** is a standard programming language used to communicate with **`relational databases`** — systems that store data in tables (rows and columns). With SQL, you can:
-  - Create databases and tables
-  - Insert data into tables
-  - Query data (ask questions to retrieve specific information)
-  - Update existing data
-  - Delete data
-  - Control access (security)
+  **SQL (Structured Query Language)** is a standard programming language used to communicate with **relational databases**.
 
-  A **`database`** is an organized collection of data stored and accessed electronically. It provides a way to store, organize, and retrieve large amounts of data efficiently.
+  A **`database`** is an organized collection of data stored and accessed electronically.
 
 - **SQL Clauses**
   - `Query Logical Written Order:` `SELECT`, TOP, DISTINCT, `FROM`, `WHERE`, `GROUP BY`, HAVING, `ORDER BY`, LIMIT
   - `Query Logical Execution Order:`
 
-| **Order** | **Clause**                       | **Purpose**                                    |
-| --------- | -------------------------------- | -----------------------------------------------|
-| 1️         | **FROM**                         | Identify the table(s) or source(s) of data.    |
-| 2️         | **ON** *(if JOIN used)*          | Define join conditions between tables.         |
-| 3️         | **JOIN**                         | Combine data from multiple tables.             |
-| 4️         | **WHERE**                        | Filter rows before grouping.                   |
-| 5️         | **GROUP BY**                     | Group rows that share the same values.         |
-| 6️         | **HAVING**                       | Filter groups after aggregation.               |
-| 7️         | **SELECT**                       | Choose which columns or expressions to return. |
-| 8️         | **DISTINCT** *(if used)*         | Remove duplicate rows from the result.         |
-| 9️         | **ORDER BY**                     | Sort the final results.                        |
-| 10        | **TOP / LIMIT / OFFSET / FETCH** | Restrict the number of rows returned.          |
+
+FROM
+ON (if JOIN used)         
+JOIN
+WHERE
+GROUP BY
+HAVING
+SELECT
+DISTINCT (if used)
+ORDER BY
+TOP / LIMIT / OFFSET / FETCH
+
+
 
 - Filtering with `logical operators` (AND, OR, NOT, BETWEEN, IN, LIKE)
 - Aliases for `columns` and `tables` (especially with joins)
