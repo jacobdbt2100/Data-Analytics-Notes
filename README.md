@@ -71,7 +71,7 @@
 - **Power Query** for automated data cleaning & transformation
 - **Power Pivot:** to create relationships between multiple tables for advanced analysis. Sheet formulas become inefficient with large datasets.
 - **DAX:** enables more omplex, dynamic calculations across related tables than **`Calculated fields`** can handle.
-- **Descriptive Statistics** (with formulas & Data Analysis ToolPak)
+- **Descriptive Statistics:** with formulas & Data Analysis ToolPak.
 
 ## 3. SQL
 
