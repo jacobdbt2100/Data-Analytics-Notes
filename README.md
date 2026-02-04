@@ -87,12 +87,13 @@ A **database** is an organized collection of data stored and accessed electronic
 
 ### 3.2 SQL Functions
 
-- Aggregate Functions: COUNT, SUM, AVG, MIN, MAX, MEDIAN, MODE, STDDEV; summarise or aggregate data, often with GROUP BY
-- String Functions: CONCAT, REPLACE, UPPER, LOWER, LTRIM, RTRIM, TRIM, SUBSTRING, LEN/LENGTH; manipulate and clean text
-- Date & Time Functions: GETDATE, CURRENT_DATE, YEAR, MONTH, DAY, DATEDIFF, DATEADD, DATE_TRUNC, DATE_FORMAT; handle and format date/time values
-- Cleaning & Transformation: CAST, CONVERT, COALESCE, NULLIF, CASE WHEN, IFNULL, IIF, LISTAGG; format data, handle nulls, apply conditional logic
-- Set Operations: UNION, UNION ALL, INTERSECT; combine or compare results from multiple queries
-- Window Functions: ROW_NUMBER, RANK, DENSE_RANK, LEAD, LAG, SUM OVER, AVG OVER; perform calculations across rows without grouping
+- **Data Retrieval & Filtering:** SELECT, FROM, WHERE, ORDER BY, LIMIT, AND, OR, NOT, LIKE
+- **Aggregations:** COUNT, SUM, AVG, MIN, MAX, MEDIAN, MODE, STDDEV, GROUP BY, HAVING; summarise or aggregate data, often with GROUP BY
+- **Window Functions:** ROW_NUMBER, RANK, DENSE_RANK, LEAD, LAG, NTILE, SUM OVER, AVG OVER; perform calculations across rows without grouping
+- **String Functions:** CONCAT, REPLACE, UPPER, LOWER, LTRIM, RTRIM, TRIM, SUBSTRING, LEN/LENGTH; manipulate and clean text
+- **Date & Time Functions:** GETDATE, CURRENT_DATE, YEAR, MONTH, DAY, DATEDIFF, DATEADD, DATE_TRUNC, DATE_FORMAT; handle and format date/time values
+- **Data Cleaning & Transformation:** CAST, CONVERT, COALESCE, NULLIF, CASE WHEN, IFNULL, IIF, LISTAGG; format data, handle nulls, apply conditional logic
+- **Set Operations:** UNION, UNION ALL, INTERSECT; combine or compare results from multiple queries
 
 ### 3.3 Joins, Subqueries, and CTEs
 
@@ -100,13 +101,14 @@ A **database** is an organized collection of data stored and accessed electronic
 - **Subquery** is a query nested inside another query. A `correlated subquery` is a subquery that depends on the outer query. It runs once for each row returned by the outer query.
 - **CTE (Common Table Expression)** is a temporary named result set that can be referenced within a SQL query. It makes complex queries easier to read and manage, especially when using subqueries or recursion. A **recursive CTE** is a CTE that refers to itself to handle hierarchical or sequential data, such as organization charts, family trees, or folder structures.
 
-### 3.4 Query Optimization
+### 3.4 Query Performance Optimization
 
 **Query optimization techniques (basics)**
 - LIMIT
 - Indexes
 - Avoiding `SELECT *`
 - Partitioning
+- `EXPLAIN` plans
 
 ### 3.5 SQL Commands
 
@@ -150,6 +152,11 @@ SQL commands are statements used to define database structures, retrieve data, m
 - **Primary key** is a chosen candidate key that uniquely identifies a row in a table.
 - **COALESCE** returns the first non-null expression from a list of expressions. It is often used to handle null values effectively.
 - **ROW_NUMBER()** assigns a unique incremental number to each row in the result set.
+
+### 3.7 Sample Questions
+- Write a query to calculate the rolling 7-day sales per product.
+- Find top 3 customers by revenue in each region.
+- Identify duplicate rows and suggest a way to remove them.
 
 ## 4. Power BI
 
