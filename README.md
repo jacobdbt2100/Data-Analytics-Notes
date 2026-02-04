@@ -175,16 +175,18 @@ SQL commands are statements used to define database structures, retrieve data, m
 
 ## 5. Python for Data Analysis
 
-**Basics and variables**
+### 5.1 Python Fundamentals
 
-You use these everywhere. Store values. Print results.
-If this feels shaky, everything else feels harder than it should.
+- Variables: a named reference to a value (an object) stored in memory.
+- Data Structures: Lists, tuples, sets, dictionaries
+- Data types: `int`, `float`, `str`, `bool`
 
-**Data structures**
+- Control statements (`if`, `for`, `while`)
+- Functions and `lambda` expressions
 
-Lists, tuples, sets, dictionaries.
-Most real problems come down to choosing the right one.
-Pick the wrong structure and your code becomes messy fast.
+
+
+
 
 **Conditionals**
 
@@ -230,13 +232,7 @@ But seeing them early helps later.
 They’re just a way to group data and behavior together.
 
 
-### 5.1 Python Fundamentals
 
-- Variables, input/output, and indentation
-- Data types: `int`, `float`, `str`, `bool`
-- Data Structures: Lists, tuples, sets, dictionaries
-- Control statements (`if`, `for`, `while`)
-- Functions and `lambda` expressions
 
 
 ### 5.2 Working with Data, NumPy, and Pandas (Importing, cleaning, and analyzing structured data)
