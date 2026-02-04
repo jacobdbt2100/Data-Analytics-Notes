@@ -6,16 +6,17 @@
 
 **Data lifecycle**: `Use case` > `Data collection` > `Storage` > `Processing` > `Analysis` > `Visualization` > `Reporting`
 
-**Types of analytics**:
+### 1.1 Types of Analysis
+
 - **Descriptive:** `What happened?` e.g., A skincare brand sees 15,000 people clicked their Instagram ad last week, but only 500 purchased.
 - **Diagnostic:** `Why did it happen?` e.g., Analysis shows that shipping costs made many customers abandon their carts at checkout.
 - **Predictive:** `What will likely happen?` e.g., If nothing changes, the model forecasts cart drop-offs will keep increasing as shipping prices rise.
 - **Prescriptive:** `What should we do?` e.g., The system recommends offering free shipping above $40 to increase checkout conversions.
 - **Exploratory:** `What hidden opportunities exist?` e.g., Data reveals customers who buy face cleansers often buy serums within a week, suggesting a personalised follow-up email can boost revenue.
 
-### 1.1 Data Cleaning
+### 1.2 Data Cleaning
 
-**Data cleaning** is the process of identifying and correcting errors in a dataset to improve its reliability for analysis.
+**Data cleaning** is the process of correcting errors in a dataset to improve its reliability for analysis.
 
 **Data Cleaning Steps:**
 
@@ -32,7 +33,7 @@
 - **Box Plot (IQR) Method:** A value is an outlier if it exceeds or falls below `1.5×IQR (interquartile range)`. That is, if it lies above the top quartile (Q3) or below the bottom quartile (Q1). A **box plot** is a graphical representation of the distribution of a dataset showing the median, quartiles, and possible outliers.
 - **Standard Deviation Method:** A value is an outlier if it is greater or lower than the `mean±(3×standard deviation)`
 
-### 1.2 Data Modelling Concepts
+### 1.3 Data Modelling Concepts
 
 - **Semantic model:** a layer that defines metrics, relationships, and logic (calculations) for easy analysis and reporting.
 - **Schema:** a structured plan of how data is organized in a database. It defines tables, columns, data types, relationships, constraints (not null, unique)
@@ -45,7 +46,7 @@
 - Accuracy: reduces duplication and errors
 - Reusability: reuse of data structures, definitions, and logic across multiple reports and systems.
 
-### 1.3 Data Terms
+### 1.4 Data Terms
 
 - **Data mining:** The process of applying statistical and machine-learning techniques on data to uncover patterns.
 - **Data profiling:** The process of examining data to assess fitness for use; **tells what the data looks like.**
@@ -95,11 +96,9 @@ A **`database`** is an organized collection of data stored and accessed electron
 
 ### 3.3 Joins, Subqueries, and CTEs
 
-**Join** is an operation used to combine rows from two or more tables based on related columns. Types: `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, `FULL JOIN`, `CROSS JOIN`, `SELF JOIN`.
-
-**Subquery** is a query nested inside another query. A `correlated subquery` is a subquery that depends on the outer query. It runs once for each row returned by the outer query.
-
-**CTE (Common Table Expression)** is a temporary named result set that can be referenced within a SQL query. It makes complex queries easier to read and manage, especially when using subqueries or recursion. A **recursive CTE** is a CTE that refers to itself to handle hierarchical or sequential data, such as organization charts, family trees, or folder structures.
+- **Join** is an operation used to combine rows from two or more tables based on related columns. Types: `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, `FULL JOIN`, `CROSS JOIN`, `SELF JOIN`.
+- **Subquery** is a query nested inside another query. A `correlated subquery` is a subquery that depends on the outer query. It runs once for each row returned by the outer query.
+- **CTE (Common Table Expression)** is a temporary named result set that can be referenced within a SQL query. It makes complex queries easier to read and manage, especially when using subqueries or recursion. A **recursive CTE** is a CTE that refers to itself to handle hierarchical or sequential data, such as organization charts, family trees, or folder structures.
 
 ### 3.4 Query Optimization
 
@@ -138,7 +137,7 @@ SQL commands are statements used to define database structures, retrieve data, m
 **DQL (Data Query Language):** query and retrieve data.
 - SELECT: retrieves data from tables
 
-### 3.6 SQL Databases Terms
+### 3.6 SQL Database Terms
 
 - **DELETE** removes specific rows from a table using a condition. **TRUNCATE** removes all rows from a table.
 - **UNION and UNION ALL** are used to combine the result sets of two or more SELECT statements. **UNION** removes duplicate rows from the combined result set. **UNION ALL** includes all rows, including duplicates.
@@ -154,13 +153,12 @@ SQL commands are statements used to define database structures, retrieve data, m
 
 ## 4. Power BI
 
-### 4.1 Power BI Basics
-
 **Data visualization:** the practice of presenting data in graphical or pictorial formats—such as charts, graphs, maps, and dashboards—to clearly communicate patterns, trends, and insights.
 
 **Power BI:** is a business intelligence tool developed by Microsoft that allows users to connect, transform, analyze, and visualize data from multiple sources.
 
-**Power BI main Components:**
+### 4.1 Power BI main Components
+
 - `Desktop:` Windows application for building reports and data models.
 - `Service (Power BI Online):` cloud-based platform for publishing, sharing, and collaborating on reports and dashboards.
 - `Mobile:` mobile apps for viewing and interacting with reports on phones and tablets.
@@ -170,7 +168,7 @@ SQL commands are statements used to define database structures, retrieve data, m
 - `Power Query:` data connection and transformation engine used across Power BI for data cleaning and preparation.
 - `Power Pivot:` data modelling engine that allows creating relationships, measures, and calculated columns using DAX.
 
-Power BI Desktop has three main views (or panes), each serving a different purpose:
+**Power BI Desktop views (panes):**
 - `Report View:` build and design dashboards.
 - `Data View:` see and explore loaded tables.
 - `Model View:` define relationships between tables.
@@ -232,11 +230,11 @@ But seeing them early helps later.
 They’re just a way to group data and behavior together.
 
 
-### 5.1 Python Fundamentals & Data Structures (Building a strong foundation in syntax, data types, and logic)
+### 5.1 Python Fundamentals
 
 - Variables, input/output, and indentation
 - Data types: `int`, `float`, `str`, `bool`
-- Lists, tuples, sets, dictionaries
+- Data Structures: Lists, tuples, sets, dictionaries
 - Control statements (`if`, `for`, `while`)
 - Functions and `lambda` expressions
 
