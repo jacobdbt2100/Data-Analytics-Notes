@@ -179,79 +179,31 @@ SQL commands are statements used to define database structures, retrieve data, m
 
 - Variables: a named reference to a value (an object) stored in memory.
 - Data Structures: Lists, tuples, sets, dictionaries
-- Data types: `int`, `float`, `str`, `bool`
+- Data types: int, float, str, bool
+- Conditional statements: if, elif, else
+- Loops: for, while
+- Functions (with Lambda expressions)
+- String handling
+- Built-ins and imports
+- File handling
+- Modules: files that contain python code - such as functions, classes, and variables - that can be reused in other programs.
+- Classes
 
-- Control statements (`if`, `for`, `while`)
-- Functions and `lambda` expressions
-
-
-
-
-
-**Conditionals**
-
-This is how Python makes decisions.
-Questions like:
-– Is this value valid?
-– Does this row meet my rule?
-
-**Loops**
-
-Loops help you work with many things at once.
-Rows in a file. Items in a list.
-They save you from writing the same line again and again.
-
-**Functions**
-
-This is where good habits start.
-Functions help you reuse logic and keep code readable.
-Almost every real project relies on them.
-
-**Strings**
-
-Text shows up everywhere.
-Names, emails, file paths.
-Knowing how to handle text saves a lot of time.
-
-**Built-ins and imports**
-
-Python already gives you powerful tools.
-You don’t need to reinvent them.
-You just need to know they exist.
-
-**File handling**
-
-Real data lives in files.
-You read it, clean it, and write results back.
-This matters more than beginners usually realize.
-
-**Classes**
-
-Not needed on day one.
-But seeing them early helps later.
-They’re just a way to group data and behavior together.
-
-
-
-
-
-### 5.2 Working with Data, NumPy, and Pandas (Importing, cleaning, and analyzing structured data)
+### 5.2 Import, Clean, and Analyse Data with Pandas & NumPy
 
 - Importing data from CSV, Excel, and other sources
 - Introduction to NumPy arrays
 - Creating, slicing, and reshaping arrays
-- Pandas DataFrames — creation, selection, filtering
+- Pandas DataFrames - creation, selection, filtering
 - Handling missing values (`.fillna()`, `.dropna()`)
 - Aggregation and grouping
-- Basic statistics and correlation
+- Basic statistics
 
+### 5.3 Visualise Data with Matplotlib & Seaborn
 
-### 5.3 Data Visualization with Matplotlib & Seaborn (Creating visual insights for presentation and storytelling)
-
-- Introduction to Matplotlib
+- Matplotlib plots
 - Seaborn plots: countplot, scatterplot, heatmap
-- Customizing charts (titles, labels, legends)
-- Comparing relationships between variables
+- Customise charts (titles, labels, legends)
 
 ### 5.4 Introduction to Machine Learning with Scikit-learn (Building a simple predictive model)
 
@@ -261,19 +213,7 @@ They’re just a way to group data and behavior together.
 - Model evaluation (R², MAE, RMSE)
 - Saving and loading models with `joblib`
 
-### 5.x Python Programming Terms
-
-- **Modules:** files that contain Python code - such as functions, classes, and variables - that can be reused in other programs.
-
-
-
-
-
-
-
-
-
-
+### 5.5 Python Programming Terms
 
 ## 6. Statistics Data Analysis
 
@@ -288,9 +228,9 @@ They’re just a way to group data and behavior together.
 - Correlation and covariance
 
 ### 6.3	Probability Basics
-    - Basic probability rules
-    - Distributions (normal, uniform, binomial)
-    - Sampling techniques
+- Basic probability rules
+- Distributions (normal, uniform, binomial)
+- Sampling techniques
 
 ### 6.4 Statistical Terms
 
@@ -299,3 +239,5 @@ They’re just a way to group data and behavior together.
 - **Linear Regression**: a statistical method used to model the relationship between a dependent variable and one or more independent varaibles.
 - **R-squared**: measures the proportion of variation in the dependent variable explained by the independent variables.
 - **Adjusted R-squared**: adjusts for the number of independent varaibles in the model.
+
+### 7. Machine Learning Introduction
