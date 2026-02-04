@@ -240,4 +240,4 @@ SQL commands are statements used to define database structures, retrieve data, m
 - **R-squared**: measures the proportion of variation in the dependent variable explained by the independent variables.
 - **Adjusted R-squared**: adjusts for the number of independent varaibles in the model.
 
-### 7. Machine Learning Introduction
+## 7. Machine Learning Introduction
