@@ -1,4 +1,4 @@
-# Data Analytics
+# Data Analytics Notes
 
 ## 1. Foundation
 
